@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+
+                <div class="col-md-3 mb-3 p-2">
+                    <label for="exampleFormControlInput1" class="form-label">Category <span>*</span></label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="javascript">javascript</option>
+                        <option value="angular">angular</option>
+                        <option value="interview">interview</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 mb-2 p-2">
+                    <label for="exampleFormControlInput1" class="form-label">Sub Category <span>*</span></label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="javascript">Questions</option>
+                        <option value="angular">programs</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6 mb-2 p-2">
+                    <label for="exampleFormControlInput1" class="form-label">Question <span>*</span></label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="model.Title">
+                </div>
+                <div class="col-md-6 mb-2 p-2">
+                    <label for="exampleFormControlInput6" class="form-label">Input <span>*</span></label>
+                    <!-- <textarea class="form-control" id="exampleFormControlTextarea6" rows="3"  [(ngModel)]="model.Input"></textarea> -->
+                    <ckeditor [editor]="Editor" *ngIf="isEditorReady" [(ngModel)]="model.Input" class="small-editor">
+                    </ckeditor>
+
+                </div>
+                <div class="col-md-6 mb-2 p-2">
+                    <label for="exampleFormControlInput7" class="form-label">Output <span>*</span></label>
+                    <ckeditor [editor]="Editor" *ngIf="isEditorReady" [(ngModel)]="model.Output" class="small-editor">
+                    </ckeditor>
+                </div>
+                <div class="col-md-12 mb-2 p-2">
+                    <label for="exampleFormControlInput7" class="form-label">Program <span>*</span></label>
+                    <!-- <textarea class="form-control" id="exampleFormControlTextarea7" rows="8"  [(ngModel)]="model.Program"></textarea> -->
+                    <ckeditor [editor]="Editor" *ngIf="isEditorReady" class="large-editor" [(ngModel)]="model.Program">
+                    </ckeditor>
+                </div>
+                <div class="col-md-12 mb-2 p-2">
+                    <button class="mx-2" (click)="add()">SUBMIT</button> <button>CLEAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

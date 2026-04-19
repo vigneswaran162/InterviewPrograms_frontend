@@ -1,0 +1,13 @@
+.small-editor ::ng-deep .ck-editor__editable_inline {
+  min-height: 100px;
+
+}
+
+.large-editor ::ng-deep .ck-editor__editable_inline {
+  min-height: 180px !important;
+
+}
+
+label{
+    font-weight: 600 !important;
+}
