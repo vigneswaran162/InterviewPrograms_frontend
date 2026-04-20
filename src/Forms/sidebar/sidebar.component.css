@@ -111,7 +111,7 @@
    border: 1px solid rgb(237, 237, 237) ;
 }
 .sidenav-collapsed {
-  width: 5rem;
+  width: 2.5rem;
   
 }
 .sidenav .logo-container {
@@ -184,8 +184,9 @@
   padding: 8px;
 }
 .sidenav-nav .sidenav-nav-item .sidenav-nav-link .sidenav-link-text {
-  margin-left: 1rem;
+  margin-left: 0rem !important;
   font-size: 12px !important;
+  display: none !important;
 }
 .sidenav-nav .sidenav-nav-item:hover .sidenav-nav-link {
   background-color:#e9ebf6;
