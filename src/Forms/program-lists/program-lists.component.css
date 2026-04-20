@@ -22,3 +22,11 @@
         font-size: 10px !important;
     }
 }
+
+.heading h5{
+  color: #5a189a !important;
+  font-weight: 600 !important;
+}
+.heading h5 span{
+  color: #03045e !important;
+}
