@@ -30,6 +30,8 @@
   transition: all 0.5s ease;
   padding: 3rem;
   background-color:#EFEFEF;
+  padding: 0.938rem !important;
+  margin:0 1.938rem !important;
 }
 
 .body-trimmed {
