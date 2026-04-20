@@ -1,0 +1,24 @@
+@media screen and (max-width: 568px) {
+    .heading h4 {
+        font-size: 14px !important;
+    }
+
+    .card h5 {
+        font-size: 12px !important;
+    }
+
+    .program {
+        font-size: 10px !important;
+    }
+
+    .input-box {
+        font-size: 10px !important;
+    }
+
+    .output-box {
+        font-size: 10px !important;
+    }
+    .form-select {
+        font-size: 10px !important;
+    }
+}
