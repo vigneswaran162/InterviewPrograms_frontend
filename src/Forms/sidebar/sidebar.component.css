@@ -106,27 +106,28 @@
   position: fixed;
   z-index: 1;
   top: 0;
-  width: 10.5625rem;
+  width: 8.5625rem;
   height: 100vh; 
    border: 1px solid rgb(237, 237, 237) ;
 }
 .sidenav-collapsed {
   width: 5rem;
+  
 }
 .sidenav .logo-container {
   display: flex;
   align-items: center;
-  padding: 0.938rem 0.938rem 0 0.938rem;
+  padding: 0.238rem 0.238rem 0 0.238rem;
   width: 100%;
 }
 .sidenav .logo-container .logo {
   background:transparent;
   text-align: center;
-  width: 3rem;
-  min-width: 3rem;
-  border-radius: 0.313rem;
-  padding: 0.313rem;
-  font-size: 24px;
+  width: 1.5rem;
+  min-width: 1.5rem;
+  border-radius: 0.213rem;
+  padding: 0.213rem;
+  font-size: 18px;
   font-weight: 900;
   cursor: pointer;
   border: none;
@@ -154,7 +155,7 @@
 
 .sidenav-nav {
   list-style: none;
-  padding: 0.238rem;
+  padding: 0.138rem;
   margin: 0;
   display: flex;
   flex-direction: column;
