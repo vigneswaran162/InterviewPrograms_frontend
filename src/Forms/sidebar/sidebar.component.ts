@@ -21,16 +21,16 @@ changeIsLeftSidebarCollapsed = output<boolean>();
   {
    routerLink:'ProgramMaster',
    icon:'bi-journal-text',
-   label:'Menu'
+   label:'Q&A Master'
   },
   {
-  routerLink:'orders',
-   icon:'bi bi-basket3',
-   label:'Orders'
+  routerLink:'AddGoals',
+   icon:'bi bi-list-check',
+   label:'Goals List'
   },{
   routerLink:'itemmaster',
    icon:'bi bi-clipboard-check',
-   label:'Item Master'
+   label:'Goals'
   },
   {
       routerLink:'TableMaster',

@@ -1,0 +1,165 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 card p-4 mb-3 border-0 shadow "
+            style="border-radius: 10px;max-height: 90vh;overflow-y: auto;" *ngIf="!isScreenChange">
+            <div class="row">
+                <h5><i class="bi bi-journal-text"></i> ADD <span>GOALS</span></h5>
+
+                <div class="col-md-6 mb-1 p-2">
+                    <label>Goal Title</label>
+                    <input type="text" class="form-control" [(ngModel)]="model.GoalTitle">
+                </div>
+
+                <div class="col-md-6 mb-1 p-2">
+                    <label>Category</label>
+                    <select class="form-select" [(ngModel)]="model.Category">
+                        <option selected>Open this select menu</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Career">Career</option>
+                        <option value="Learning">Learning</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6 mb-1 p-2">
+                    <label>Progress (%)</label>
+                    <input type="number" min="0" max="100" class="form-control" [(ngModel)]="model.Progress">
+
+                </div>
+                <div class="col-md-6 mb-1 p-2">
+                    <label>Status</label>
+                    <select class="form-select" [(ngModel)]="model.Status">
+                        <option value="Planned">Planned</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+
+
+                <div class="col-md-6 mb-2 p-2">
+                    <label for="exampleFormControlInput6" class="form-label">Description </label>
+                    <ckeditor [editor]="Editor" *ngIf="isEditorReady" [(ngModel)]="model.Description"
+                        class="small-editor">
+                    </ckeditor>
+                </div>
+                <div class="col-md-6 mb-2 p-2" style="max-height: 180px;overflow:hidden">
+                    <label for="exampleFormControlInput6" class="form-label"><button (click)="AddRow()" class="btn btn-sm"><i class="bi bi-plus-square"></i></button>  ADD TASK</label>
+                    <div class="row">
+                        <div class="col-md-12 mb-1 input-group" *ngFor="let item of TaskListDet;let i = index">
+                            <span class="input-group-text bg-danger" id="basic-addon1"><i class="bi bi-trash text-white" (click)="DeleteRow(i)"></i></span>
+                            <input type="text" class="form-control form-control-sm" [(ngModel)]="item.TaskName"  aria-label="Username"
+                                aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-md-12  p-2 d-flex justify-content-end">
+                    <button class="mx-2 button" (click)="submitForm()">
+                        <span> SUBMIT
+                        </span>
+                    </button> <button class="button" (click)="resetForm()"><span> CLEAR
+                        </span></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 card p-5 mb-3 border-0 shadow "
+            style="border-radius: 10px;max-height: 90vh;overflow-y: auto;" *ngIf="isScreenChange">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="mb-3"><i (click)="onClickList()" class="bi bi-journal-text"></i> Program
+                        <span>Master</span> Lists
+                    </h5>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="text" class="form-control" placeholder="Search program..." [(ngModel)]="searchText"
+                        (input)="applyFilter()">
+                </div>
+                <table class="table table-bordered table-hover table-striped table-responsive">
+                    <thead>
+                        <tr>
+                            <th>SNo.</th>
+                            <th>Category</th>
+                            <th>Sub Category</th>
+                            <th>Question</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let item of paginatedData; let i = index">
+                            <td class="text-center">{{ (currentPage-1)*pageSize + i + 1 }} .</td>
+                            <td>{{ item.Category }}</td>
+                            <td>{{ item.SubCategory }}</td>
+                            <td>{{ item.Title }}</td>
+                            <td>
+                                <i class="bi bi-pencil-square text-success mx-2" (click)="onEdit(item)"
+                                    style="cursor:pointer"></i>
+
+                                <i class="bi bi-trash3 text-danger" (click)="onDelete(item)" style="cursor:pointer"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <nav class="mt-3">
+                    <ul class="pagination justify-content-center">
+
+                        <li class="page-item" [class.disabled]="currentPage === 1">
+                            <a class="page-link" (click)="changePage(currentPage - 1)">Previous</a>
+                        </li>
+
+                        <li class="page-item" *ngFor="let page of totalPagesArray"
+                            [class.active]="currentPage === page">
+                            <a class="page-link" (click)="changePage(page)">{{page}}</a>
+                        </li>
+
+                        <li class="page-item" [class.disabled]="currentPage === totalPages">
+                            <a class="page-link" (click)="changePage(currentPage + 1)">Next</a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999;width: 300px;">
+    <div id="validationToast" class="toast align-items-center bg-danger text-white border-0" role="alert">
+        <div class="d-flex">
+            <div class="toast-body">
+                {{ toastMessage }} <i data-bs-dismiss="toast" class="bi bi-x mx-2"
+                    style="font-size: 15px !important;"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999;width: 300px;">
+    <div id="validationSuccessToast" class="toast align-items-center bg-success text-white border-0" role="alert">
+        <div class="d-flex">
+            <div class="toast-body">
+                {{ toastMessage }}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loader-wrapper" *ngIf="isLoading">
+
+    <div class="spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
