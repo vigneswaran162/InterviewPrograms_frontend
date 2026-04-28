@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 card p-4 mb-3 border-0 shadow "
-            style="border-radius: 10px;max-height: 90vh;overflow-y: auto;" *ngIf="!isScreenChange">
+            style="border-radius: 10px;max-height: 85vh !important;overflow-y: auto !important;" *ngIf="!isScreenChange">
             <div class="row">
                 <h5><i class="bi bi-journal-text"></i> ADD <span>GOALS</span></h5>
 
@@ -41,11 +41,11 @@
                         class="small-editor">
                     </ckeditor>
                 </div>
-                <div class="col-md-6 mb-2 p-2" style="max-height: 180px;overflow:hidden">
+                <div class="col-md-6 mb-2 p-2" style="max-height: 180px;overflow-y:auto;overflow-x: hidden;">
                     <label for="exampleFormControlInput6" class="form-label"><button (click)="AddRow()" class="btn btn-sm"><i class="bi bi-plus-square"></i></button>  ADD TASK</label>
                     <div class="row">
                         <div class="col-md-12 mb-1 input-group" *ngFor="let item of TaskListDet;let i = index">
-                            <span class="input-group-text bg-danger" id="basic-addon1"><i class="bi bi-trash text-white" (click)="DeleteRow(i)"></i></span>
+                            <span class="input-group-text bg-danger" id="basic-addon1" style="cursor: pointer;" (click)="DeleteRow(i)"><i class="bi bi-trash text-white" ></i></span>
                             <input type="text" class="form-control form-control-sm" [(ngModel)]="item.TaskName"  aria-label="Username"
                                 aria-describedby="basic-addon1">
                         </div>
